@@ -12,4 +12,7 @@ class Cliente extends Model
     public function cita(){
     	 return $this->hasMany('App\Cita');
     }
+    public function sede(){
+      return $this->hasOne('App\Sede');
+    }
 }

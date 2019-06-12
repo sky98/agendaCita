@@ -24,7 +24,7 @@ class CreateCitasTable extends Migration
             $table->integer('servicio_id')->unsigned();
             $table->integer('profesional_id')->unsigned();
             $table->integer('cliente_id')->unsigned();
-            
+            //conditions for foreign keys-condiciones para las claves foraneas
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('sede_id')->references('id')->on('sedes')->onDelete('cascade');
             $table->foreign('servicio_id')->references('id')->on('servicios')->onDelete('cascade');

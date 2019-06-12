@@ -20,6 +20,10 @@ class CreateClientesTable extends Migration
             $table->string('email',50);
             $table->string('telefono',10);
             $table->string('address');
+            //agregamos la clave foranea de las sedes.
+            $table->integer('sede_id')->unsigned();
+            //Agregamos la condición
+            $table->foreign('sede_id')->references('id')->on('sedes')->onDelete('cascade');
             $table->timestamps();
         });
     }

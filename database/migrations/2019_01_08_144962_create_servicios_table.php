@@ -24,7 +24,7 @@ class CreateServiciosTable extends Migration
             $table->increments('id');
             $table->integer('profesional_id')->unsigned();
             $table->integer('servicio_id')->unsigned();
-            
+
             $table->foreign('profesional_id')->references('id')->on('profesionales')->onDelete('cascade');
             $table->foreign('servicio_id')->references('id')->on('servicios')->onDelete('cascade');
             $table->timestamps();
@@ -33,7 +33,7 @@ class CreateServiciosTable extends Migration
             $table->increments('id');
             $table->integer('sede_id')->unsigned();
             $table->integer('servicio_id')->unsigned();
-            
+
             $table->foreign('sede_id')->references('id')->on('sedes')->onDelete('cascade');
             $table->foreign('servicio_id')->references('id')->on('servicios')->onDelete('cascade');
             $table->timestamps();
