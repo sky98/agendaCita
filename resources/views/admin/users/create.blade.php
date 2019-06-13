@@ -24,7 +24,7 @@
       </div>
       <div class="form-group">
 		{!! Form::label('type','Privilegios')!!}
-		{!! Form::select('type',[''=>'Seleccione un Nivel','administrador' => 'Administrador', 'digitador' => 'Digitador'], null,['class'=>'form-control'])!!}
+		{!! Form::select('type',[''=>'Seleccione un Nivel','administrador' => 'Administrador', 'estandar' => 'Estandar'], null,['class'=>'form-control'])!!}
       </div>
       <div class="form-group">
         {!! Form::label('status','Estado ')!!}
@@ -34,7 +34,7 @@
     <!-- /.box-body -->
     <div class="box-footer">
       {!! Form::submit('Registrar Usuario', ['class'=>'btn btn-primary'])!!}
-    </div>  
+    </div>
   </form>
   {!! Form::close()!!}
 </div>

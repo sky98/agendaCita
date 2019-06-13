@@ -31,7 +31,7 @@
 				  <tbody>
 				    @foreach($users as $user)
 				    <tr>
-				      @if($user->type == "digitador")
+				      @if($user->type == "estandar")
 				      <th scope="row">{{ $user->id }}</th>
 				      <td>{{ $user->name }}</td>
 				      <td>{{ $user->email }}</td>
@@ -45,7 +45,7 @@
 				        <a href="{{ route('users.edit', $user->id)}}" class="btn btn-warning"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></a>
 				        <a href="{{ route('users.destroy', $user->id)}}" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></a>
 				      </td>
-				    </tr>				      
+				    </tr>
 
 				      @endif
 				    @endforeach

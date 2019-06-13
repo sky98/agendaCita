@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cliente;
+use App\Sede;
 use Laracasts\Flash\Flash;
 
 class ClientesController extends Controller
@@ -31,7 +32,9 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        return view('admin.clientes.create');
+      $sede = Sede::orderBy('id','ASC')->pluck('name','id')->all();
+        return view('admin.clientes.create')
+        ->with('sede',$sede);
     }
 
     /**
@@ -45,8 +48,9 @@ class ClientesController extends Controller
        $cliente = new Cliente($request->all());
         $cliente->save();
         flash('Registro Guardado Exitosamente')->success();
-        return redirect()->route('clientes.index');    
+        return redirect()->route('clientes.index');
     }
+    //Este metodo fue creado para agregar el cliente en tiempo real, en la seccion de asignar las citas
     public function store_ajax(Request $request)
     {
 
@@ -75,7 +79,10 @@ class ClientesController extends Controller
     public function edit($id)
     {
         $cliente = cliente::find($id);
-        return view ('admin.clientes.edit')->with('cliente', $cliente);
+        $sede = Sede::orderBy('id','ASC')->pluck('name','id')->all();
+        return view ('admin.clientes.edit')
+          ->with('cliente', $cliente)
+          ->with('sede',$sede);
     }
 
     /**

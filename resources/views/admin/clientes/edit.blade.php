@@ -30,11 +30,15 @@
         {!! Form::label('address','Dirección')!!}
         {!! Form::text('address', $cliente->address, ['class' => 'form-control', 'placeholder' => 'Escriba la dirección', 'required'])!!}
       </div>
+      <div class="form-group">
+        {!! Form::label('sede_id','Sede')!!}
+        {!! Form::select('sede_id',$sede,$cliente->sede_id,['class'=>'form-control','placeholder' => 'Selecione una Opcion'])!!}
+      </div>
     </div>
     <!-- /.box-body -->
     <div class="box-footer">
       {!! Form::submit('Actualizar Registro', ['class'=>'btn btn-primary'])!!}
-    </div>  
+    </div>
   </form>
   {!! Form::close()!!}
 </div>
