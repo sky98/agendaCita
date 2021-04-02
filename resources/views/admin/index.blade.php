@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title','Cejas Perfectas')
+@section('title','Prueba Agenda')
 @section('main-content')
 
 <script>

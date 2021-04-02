@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 class Cita extends Model
 {
 	protected $table = "citas";
-	protected $fillable = ['id','sede_id','servicio_id','profesional_id','reservadate','reservatime','cliente_id','status','notas','user_id'];
+	protected $fillable = ['id', 'reservacion', 'sede_id','servicio_id','profesional_id','reservadate', 'reservatime','cliente_id','status','notas','user_id'];
 
 	public function user(){
 		return $this->belongsTo('App\User');

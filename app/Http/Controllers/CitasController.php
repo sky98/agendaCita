@@ -65,6 +65,7 @@ class CitasController extends Controller
      */
     public function store(Request $request)
     {
+
         $citas = new Cita($request->all());
         //Cambiar formato de hora de 1:00 pm a 13:00:00 
         $cadena = strtotime($citas->reservatime);
@@ -72,6 +73,7 @@ class CitasController extends Controller
         //obtenemos el usuario que realizo la creacion
         $auth = app()->make('auth');
         $citas->user_id = $auth->id();
+        $citas->cliente_id = 1;
         $citas->save();
         /*--Procedimiento para enviar el Email de Notificacion--*/
         //Llmamos a los modelos relacionados para obtener la informacion.
@@ -88,9 +90,9 @@ class CitasController extends Controller
             'notas' => $citas->notas
         );
 
-        Mail::send('admin.citas.resumen', $data, function ($message) use ($correo){
+        /*Mail::send('admin.citas.resumen', $data, function ($message) use ($correo){
             $message->to($correo)->subject('Informacion sobre su cita');
-         });
+         });*/
         flash('Cita registrada de forma exitosa')->success();
         return redirect()->route('citas.index');
     }
@@ -193,9 +195,9 @@ class CitasController extends Controller
             'notas' => $citas->notas
         );
 
-        Mail::send('admin.citas.resumen', $data, function ($message) use ($correo){
+        /*Mail::send('admin.citas.resumen', $data, function ($message) use ($correo){
             $message->to($correo)->subject('Estado de su cita');
-         });
+         });*/
         flash('Registro actualizado de forma exitosa')->success();
 
         return redirect()->route('citas.index');

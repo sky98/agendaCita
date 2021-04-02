@@ -15,7 +15,9 @@ class CreateCitasTable extends Migration
     {
         Schema::create('citas', function (Blueprint $table) {
             $table->increments('id');
-            $table->dateTime('reservacion');
+            $table->dateTime('reservacion')->nullable();
+            $table->dateTime('reservadate');
+            $table->time('reservatime');
             $table->string('notas');
             $table->enum('status',['Reservada','En Proceso','FInalizada','Cancelada'])->default('Reservada');
             //Foreign Keys
